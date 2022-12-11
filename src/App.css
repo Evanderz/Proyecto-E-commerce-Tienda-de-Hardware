@@ -35,4 +35,50 @@
   to {
     transform: rotate(360deg);
   }
+
 }
+.bordeProductos {
+
+  border: solid red;
+  padding: 20px;
+  margin: 20px;
+  list-style: none;
+  
+
+}
+
+.box{
+
+display: flex;
+flex-wrap: wrap;
+
+
+
+
+}
+
+.wrapper{
+
+display: grid;
+grid-template-columns: repeat(3,1fr);
+
+
+}
+
+.row{
+display: flex;
+flex-direction: column;
+padding: 10%
+
+}
+
+.separarBoton{
+
+
+  margin-top:30px;
+
+
+}
+
+
+

@@ -1,4 +1,6 @@
-export const CartWidget = () => {
+
+
+const CartWidget = () => {
   return (
     <div className="flex-none">
     <div className="dropdown dropdown-end">
@@ -38,3 +40,4 @@ export const CartWidget = () => {
 </div>
   )
 }
+export default CartWidget
