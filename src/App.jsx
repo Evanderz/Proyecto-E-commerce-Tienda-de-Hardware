@@ -1,11 +1,10 @@
-import './App.css';
-import { NavBar } from './Components/NavBar';
-import { ItemListContainers } from './Components/ItemListContainers';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import './App.css';
+import { ItemDetailContainers } from './Components/ItemDetailContainers';
 import ItemList from './Components/ItemList';
+import { ItemListContainers } from './Components/ItemListContainers';
 import ItemListDetail from './Components/ItemListDetail';
-import {ItemDetailContainers} from './Components/ItemDetailContainers';
-import ItemDetail from './Components/ItemDetail';
+import { NavBar } from './Components/NavBar';
 
 function App() {
   return (

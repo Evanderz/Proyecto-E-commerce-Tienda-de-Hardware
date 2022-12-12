@@ -21,6 +21,7 @@ export const NavBar = () => {
                             <li><Link to={`/categorias/Gabinetes`}>Gabinetes</Link></li>
                             <li><Link to={`/categorias/Refrigeracion`}>Gabinetes</Link></li>
                             <li><Link to={`/categorias/Fuentes`}>Fuentes</Link></li>
+                            <li><Link to={`/categorias/Monitores`}>Monitores</Link></li>
                         </ul>
 
                     </div>

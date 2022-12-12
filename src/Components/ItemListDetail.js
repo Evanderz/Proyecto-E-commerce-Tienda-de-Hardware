@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import ItemDetail from './ItemDetail'
-import { productos } from './data/Hardware'
+import { Blocks } from 'react-loader-spinner'
 import { useParams } from 'react-router-dom'
-import { NavBar } from './NavBar'
+import { productos } from './data/Hardware'
+import ItemDetail from './ItemDetail'
+
 
 const ItemListDetail = () => {
 
   const [item, setItem] = useState([])
-  const {id} = useParams()
+  const [isLoading, setIsLoading] = useState(false)
+  const { id } = useParams()
 
   useEffect(() => {
 
@@ -15,10 +17,15 @@ const ItemListDetail = () => {
 
       setItem(response)
 
+    }).finally(()=>{
+
+       setIsLoading(false)
+
     })
-  }, [ id ])
+  }, [id])
 
   const getItemDetail = () => {
+    setIsLoading(true)
     return new Promise((resolve, reject) => {
       const item = productos.filter(p => p.id == id)
 
@@ -33,13 +40,29 @@ const ItemListDetail = () => {
   }
 
   return (
-    <div className='box wrapper'>
-      
-      {item.map(i => <ItemDetail key={i.id} {...i} />)}
-      
-  
-    </div>
+    <>  {isLoading ?
+
+      <div className='centrarLoading'>
+        <Blocks
+          visible={isLoading}
+          height="80"
+          width="80"
+          ariaLabel="blocks-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+        />
+      </div> 
+      :
+      <div className='box wrapper'>
+
+        {item.map(i => <ItemDetail key={i.id} {...i} />)}
+
+
+      </div>}
+
+    </>
   )
+
 }
 
 export default ItemListDetail
