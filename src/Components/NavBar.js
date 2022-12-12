@@ -18,9 +18,9 @@ export const NavBar = () => {
                             <li><Link to={`/categorias/Microprocesador`}>Microprocesadores</Link></li>
                             <li><Link to={`/categorias/Placa_de_Video`}>Placas de Video</Link></li>
                             <li><Link to={`/categorias/RAM`}>Memorias RAM</Link></li>
-                            <li><Link to={`/categorias/Gabinetes`}>Gabinetes</Link></li>
-                            <li><Link to={`/categorias/Refrigeracion`}>Gabinetes</Link></li>
-                            <li><Link to={`/categorias/Fuentes`}>Fuentes</Link></li>
+                            <li><Link to={`/categorias/Gabinete`}>Gabinetes</Link></li>
+                            <li><Link to={`/categorias/Refrigeracion`}>Refrigeracion</Link></li>
+                            <li><Link to={`/categorias/Fuente`}>Fuentes</Link></li>
                             <li><Link to={`/categorias/Monitores`}>Monitores</Link></li>
                         </ul>
 
