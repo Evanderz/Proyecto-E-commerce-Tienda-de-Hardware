@@ -5,7 +5,7 @@ const Item = ({ id, name, imagen, categoria, price }) => {
   return (
     <>
       <div className='bordeProductos  row  '>
-        {imagen}
+        <img src={imagen}></img>
         {name}
         <div className='m-2'>
         ${price}

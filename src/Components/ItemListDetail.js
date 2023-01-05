@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Blocks } from 'react-loader-spinner'
 import { useParams } from 'react-router-dom'
-import { productos } from './data/Hardware'
 import ItemDetail from './ItemDetail'
+import Loader from './stackblitz/Loader'
+import { getDoc, getFirestore, doc, collection, getDocs,query,where } from 'firebase/firestore'
 
 
 const ItemListDetail = () => {
@@ -13,45 +14,40 @@ const ItemListDetail = () => {
 
   useEffect(() => {
 
-    getItemDetail().then(response => {
+    getItemDetail()
 
-      setItem(response)
-
-    }).finally(()=>{
-
-       setIsLoading(false)
-
-    })
   }, [id])
 
   const getItemDetail = () => {
+    
     setIsLoading(true)
-    return new Promise((resolve, reject) => {
-      const item = productos.filter(p => p.id == id)
 
-      setTimeout(() => {
+        const db = getFirestore()
 
-        resolve(item ? item : productos);
+        //filtro por categoria dependiendo lo que seleccionen en el boton de categorias
+        const collectionFilter = collection(db, 'Hardware')
+          
+        
+        getDocs(collectionFilter).then(( snapshot ) => {
+          
+            const productos = (snapshot.docs.map(d => ({ id: d.id, ...d.data() })))
+            const item = productos.filter(p => p.id == id)
+           
 
-      }, 500)
+            setItem(item.length > 0 ? item : productos)
+    
+    
+        }).finally(()=>{
 
-    })
-
-  }
+            setIsLoading(false)
+     
+         })
+        }
 
   return (
     <>  {isLoading ?
 
-      <div className='centrarLoading'>
-        <Blocks
-          visible={isLoading}
-          height="80"
-          width="80"
-          ariaLabel="blocks-loading"
-          wrapperStyle={{}}
-          wrapperClass=""
-        />
-      </div> 
+      <Loader/>
       :
       <div className='box wrapper'>
 

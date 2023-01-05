@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useCart } from './context/cartContext'
 
 
 
@@ -27,6 +28,7 @@ export const ButtonStock = ({ stock }) => {
 
     }
 
+    
 
 
 
@@ -34,9 +36,10 @@ export const ButtonStock = ({ stock }) => {
         <div>
             
             
-            <button onClick={quitarProducto} className='btn separarBoton'>Quitar</button>
+            <button onClick={quitarProducto} className='btn separarBoton'>-</button>
             <span className='text-xl m-2 separarBoton'>{contador}</span>
-            <button onClick={agregarProducto} className='btn separarBoton'>Agregar</button>
+            <button onClick={agregarProducto} className='btn separarBoton'>+</button>
+            
 
         </div>
     )

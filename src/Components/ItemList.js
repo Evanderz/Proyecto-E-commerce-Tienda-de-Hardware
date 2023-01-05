@@ -1,65 +1,58 @@
 import React, { useEffect, useState } from 'react'
 import { Blocks } from 'react-loader-spinner'
 import { useParams } from 'react-router-dom'
-import { productos } from './data/Hardware'
 import Item from './Item'
+import Loader from './stackblitz/Loader'
+import { getDoc, getFirestore, doc, collection, getDocs,query,where } from 'firebase/firestore'
 
-const ItemList = () => {
-    const [products, setProducts] = useState([])
+const ItemList = (filtro) => {
+    
     const { categoria } = useParams()
-
     const [isLoading, setIsLoading] = useState(false)
+    const [items, setItems] = useState([])
 
     useEffect(() => {
 
-        getProducts().then(response => {
-
-
-            setProducts(response)
-
-        }).finally(() => {
-
-            setIsLoading(false)
-
-        })
+        getItems()
 
     }, [categoria])
 
-    const getProducts = () => {
 
-        setIsLoading(true);
-        return new Promise((resolve, reject) => {
-            const products = categoria ? productos.filter(p => p.categoria == categoria) : productos
+    const getItems = () => {
 
+        setIsLoading(true)
 
-            setTimeout(() => {
+        const db = getFirestore()
 
-                resolve(products);
+        //filtro por categoria dependiendo lo que seleccionen en el boton de categorias
+        const collectionFilter = collection(db, 'Hardware')
+          
+        
+        getDocs(collectionFilter).then(( snapshot ) => {
+          
+            const productos = (snapshot.docs.map(d => ({ id: d.id, ...d.data() })))
+            const items = productos.filter(p => p.categoria == categoria)
+           
 
+            setItems(items.length > 0 ? items : productos)
+    
+    
+        }).finally(()=>{
 
-            }, 2000)
-
-        })
-
+            setIsLoading(false)
+     
+         })
     }
+    
     return (
         <>
             {isLoading ? 
             
-                <div className='centrarLoading'>
-                    <Blocks
-                        visible={isLoading}
-                        height="80"
-                        width="80"
-                        ariaLabel="blocks-loading"
-                        wrapperStyle={{}}
-                        wrapperClass=""
-                    />
-                </div> 
+                <Loader/>
                 : 
                 <div className='box wrapper'>
 
-                    {products.map(p => <Item key={p.id} {...p} />)}
+                    {items.map(p => <Item key={p.id} {...p} />)}
 
                 </div>}
         </>

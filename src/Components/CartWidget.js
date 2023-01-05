@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom"
 
 const CartWidget = () => {
   return (
@@ -15,7 +15,9 @@ const CartWidget = () => {
                 <span className="font-bold text-lg">3 Items</span>
                 <span className="text-info">Subtotal: $10000</span>
                 <div className="card-actions">
+                    <Link to = '/item/cart'>
                     <button className="btn btn-primary btn-block">Ver Carrito</button>
+                    </Link>
                 </div>
             </div>
         </div>
