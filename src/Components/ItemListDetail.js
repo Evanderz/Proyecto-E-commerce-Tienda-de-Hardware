@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { Blocks } from 'react-loader-spinner'
 import { useParams } from 'react-router-dom'
 import ItemDetail from './ItemDetail'
 import Loader from './stackblitz/Loader'
-import { getDoc, getFirestore, doc, collection, getDocs,query,where } from 'firebase/firestore'
+import { getFirestore, collection, getDocs } from 'firebase/firestore'
 
 
 const ItemListDetail = () => {
@@ -19,35 +18,35 @@ const ItemListDetail = () => {
   }, [id])
 
   const getItemDetail = () => {
-    
+
     setIsLoading(true)
 
-        const db = getFirestore()
+    const db = getFirestore()
 
-        //filtro por categoria dependiendo lo que seleccionen en el boton de categorias
-        const collectionFilter = collection(db, 'Hardware')
-          
-        
-        getDocs(collectionFilter).then(( snapshot ) => {
-          
-            const productos = (snapshot.docs.map(d => ({ id: d.id, ...d.data() })))
-            const item = productos.filter(p => p.id == id)
-           
+    //filtro por categoria dependiendo lo que seleccionen en el boton de categorias
+    const collectionFilter = collection(db, 'Hardware')
 
-            setItem(item.length > 0 ? item : productos)
-    
-    
-        }).finally(()=>{
 
-            setIsLoading(false)
-     
-         })
-        }
+    getDocs(collectionFilter).then((snapshot) => {
+
+      const productos = (snapshot.docs.map(d => ({ id: d.id, ...d.data() })))
+      const item = productos.filter(p => p.id == id)
+
+
+      setItem(item.length > 0 ? item : productos)
+
+
+    }).finally(() => {
+
+      setIsLoading(false)
+
+    })
+  }
 
   return (
     <>  {isLoading ?
 
-      <Loader/>
+      <Loader />
       :
       <div className='box wrapper'>
 

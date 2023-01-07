@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom"
 import CartWidget from "./CartWidget"
-import ItemList from "./ItemList"
 
 export const NavBar = () => {
     return (
         <>
-            <div className="navbar bg-base-100 drop-shadow-lg">
+            <div className="navbar bg-base-100 shadow-lg shadow-violet-500">
                 <div className="flex-1">
                     <Link to='/' className="btn btn-ghost normal-case text-xl ">HARDMANIA</Link>
 
@@ -27,7 +26,7 @@ export const NavBar = () => {
                     </div>
 
                 </div>
-                <CartWidget/>
+                <CartWidget />
             </div>
         </>
     )

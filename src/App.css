@@ -32,59 +32,114 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 
 }
+
+li {
+
+  list-style: none;
+
+}
+
 .bordeProductos {
 
   border: solid red;
   padding: 20px;
   margin: 20px;
   list-style: none;
-  
 
 }
 
-.box{
+.box {
 
-display: flex;
-flex-wrap: wrap;
-
-
-
+  display: flex;
+  flex-wrap: wrap;
 
 }
 
-.wrapper{
+.wrapper {
 
-display: grid;
-grid-template-columns: repeat(3,1fr);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 
 
 }
 
-.row{
-display: flex;
-flex-direction: column;
-padding: 10%
+.wrapperCarrito {
 
-}
-
-.separarBoton{
-
-
-  margin-top:30px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: top;
 
 
 }
 
-.centrarLoading{
-padding-top: 20%;
-text-align:-webkit-center;
+.row {
+  display: flex;
+  flex-direction: column;
+  padding: 10%
+}
+
+.separarBoton {
+
+  margin-top: 30px;
 
 }
 
+.centrarLoading {
+
+  padding-top: 20%;
+  text-align: -webkit-center;
+
+}
+
+.centrarCarrito {
+
+  padding-top: 50px;
+  text-align: right;
+
+}
+
+.pequeña {
+
+  width: 100px;
+  height: 100px;
+}
+
+.div {
+
+  width: 500px;
+  padding: 50px 0;
+  margin: 0;
+}
+
+.divAbsoluto {
+
+  position: absolute;
+  left: 800px;
+  top: 90px;
+  padding: 200px;
+  z-index: 1001;
+
+}
+
+label {
+
+  display: inline-block;
+  width: 80px;
+}
 
 
+.fondoTrasparente {
+
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.348);
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+
+}
