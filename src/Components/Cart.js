@@ -24,7 +24,7 @@ export const Cart = () => {
 
 
     let { items, clear } = useCart()
-    
+
     if (items.length < 1) {
 
         mensajeCarrito = <div className='text-2xl m-10 '>Agrega productos al carrito</div>
@@ -90,8 +90,6 @@ export const Cart = () => {
 
         }
 
-
-
     }
 
     const cancelarCompra = () => {
@@ -153,7 +151,7 @@ export const Cart = () => {
         formulario =
             <>
                 <div className='fondoTrasparente'></div>
-                <div className='border-solid  border-2 border-blue-500 rounded-md shadow-lg bg-black shadow-violet-500 m-10 centraLoader  divAbsoluto'>
+                <div className='border-solid m-11  border-2 border-blue-500 rounded-md shadow-lg bg-black shadow-violet-500 divAbsoluto centrarFormulario'>
                     <div className='text-4xl  text-center'>Ultimo paso!</div>
 
                     <Formulario nombre={nombre} nombreCambiado={cambiarNombre} apellido={apellido} apellidoCambiado={cambiarApellido} mail={mail} mailCambiado={cambiarMail} telefono={telefono} telefonoCambiado={cambiarTelefono} />

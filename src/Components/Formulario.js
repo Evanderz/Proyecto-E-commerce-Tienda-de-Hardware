@@ -7,9 +7,9 @@ const Formulario = ({ nombre, nombreCambiado, apellido, apellidoCambiado, mail, 
 
         <>
 
-            <h2 className='m-4'>Ingrese sus datos para la compra:</h2>
+            <h2 className='m-6'>Ingrese sus datos para la compra:</h2>
             <form>
-                <li className='m-4'>
+                <li className='m-6'>
                     <label htmlFor="nombre">Nombre:</label>
                     <input
                         className=''
@@ -21,7 +21,7 @@ const Formulario = ({ nombre, nombreCambiado, apellido, apellidoCambiado, mail, 
 
                     />
                 </li>
-                <li className='m-4'>
+                <li className='m-6'>
                     <label htmlFor="nombre">Apellido:</label>
                     <input
                         type="text"
@@ -31,7 +31,7 @@ const Formulario = ({ nombre, nombreCambiado, apellido, apellidoCambiado, mail, 
                         value={apellido}
                     />
                 </li>
-                <li className='m-4'>
+                <li className='m-6'>
                     <label htmlFor="mail">E-Mail:</label>
                     <input
                         type="text"
@@ -41,7 +41,7 @@ const Formulario = ({ nombre, nombreCambiado, apellido, apellidoCambiado, mail, 
                         onChange={(e) => { mailCambiado(e.target.value) }}
                     />
                 </li>
-                <li className='m-4'>
+                <li className='m-6'>
                     <label htmlFor="nombre">Telefono:</label>
                     <input
                         type="text"
